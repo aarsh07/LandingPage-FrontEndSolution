@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 }
 
+.mobile-img {
+  display: none;
+}
+
 nav {
   color: white;
   height: 11vh;
@@ -30,6 +34,8 @@ nav {
 .list {
   display: flex;
   align-items: center;
+  margin-right: 35px;
+  position: relative;
 }
 
 .list li {
@@ -38,19 +44,12 @@ nav {
   transition: all 500ms ease-in-out;
 }
 
-.list li:last-child {
-  margin-right: 30px;
-}
-
 .list li a {
   text-decoration: none;
   color: white;
 }
 
-/* style.css | http://127.0.0.1:5500/style.css?_cacheOverride=1663656730887 */
-
 nav {
-  /* height: 20vh; */
   height: 13vh;
 }
 
@@ -75,10 +74,13 @@ nav {
   display: flex;
 }
 
-/* Element | http://127.0.0.1:5500/index.html */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .btn > a:nth-child(1) {
-  display: flex;
   align-items: center;
   color: black;
 }
@@ -176,7 +178,7 @@ nav {
 }
 
 .sec-container {
-  height: 75vh;
+  height: 90vh;
   max-width: 100vw;
   width: 100vw;
   display: flex;
@@ -187,15 +189,19 @@ nav {
   color: hsl(167, 40%, 24%);
   display: flex;
   flex-direction: column;
-  width: 49.5vw;
+  width: 49.4%;
   background-image: url("images/desktop/image-graphic-design.jpg");
   justify-content: flex-end;
   align-items: center;
-  background-size: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 90%;
 }
 
-.cardLeft img {
+.cardLeft img,
+.cardRight {
   width: 100%;
+  height: 100%;
 }
 
 .heading-semi {
@@ -204,14 +210,22 @@ nav {
 }
 
 .cardRight {
+  height: 90%;
   color: hsl(198, 62%, 26%);
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 50%;
   background-image: url("images/desktop/image-photography.jpg");
   justify-content: flex-end;
   align-items: center;
-  background-size: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.sec-cards {
+  display: flex;
+  height: 100%;
+  max-width: 100vw;
 }
 
 .cardLeft img {
@@ -224,8 +238,8 @@ nav {
 
 .description {
   font-family: "Barlow", sans-serif;
-  width: 50%;
-  margin: 25px 0 40px 0;
+  width: 60%;
+  margin: 25px 0;
   line-height: 1.7;
 }
 
@@ -248,15 +262,16 @@ nav {
 }
 
 .reviews {
-  width: 85vw;
+  width: 100vw;
   height: 40vh;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .client {
-  height: 35vh;
-  width: 28vw;
+  height: 38vh;
+  width: 30vw;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -287,17 +302,22 @@ nav {
 }
 
 .name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-weight: bolder;
 }
 
 .profession {
   font-weight: lighter;
   color: hsl(232, 10%, 55%);
+  margin-top: 15px;
 }
 
 .last-imgs {
   width: 100vw;
   display: flex;
+  margin-top: 25px;
 }
 
 .l-img {
@@ -356,9 +376,10 @@ nav {
   font-size: 20px;
 }
 
-.list li:hover,
+li:hover,
 :focus {
   transform: scale(1.1);
+  color: whitesmoke;
 }
 
 .btn:hover {
@@ -367,82 +388,389 @@ nav {
   text-decoration: none;
 }
 
+.hamBurger {
+  display: none;
+  width: 25px;
+  height: 20px;
+  position: absolute;
+  top: 45px;
+  right: 15px;
+  cursor: pointer;
+  transition: 500ms all ease-in-out;
+}
+
 @media screen and (max-width: 1100px) {
-  .heading-card {
-    font-size: 1.5rem;
-    width: 60%;
+  .client-testimonial {
+    height: 70vh;
   }
 
-  .content {
-    width: 60%;
+  .cardLeft,
+  .cardRight {
+    width: 50vw;
+  }
+  .card {
+    height: 50vh;
+  }
+
+  .heading-card {
+    /* font-size: 2.5rem; */
+    font-size: 1.5rem;
+  }
+
+  .content,
+  .heading-card,
+  #learnMore {
+    /* width: 50%; */
+    width: 65%;
+  }
+
+  .cardLeft {
+    /* background-size: 100%; */
+    background-size: 100% 100%;
+  }
+
+  .cardRight {
+    /* background-size: 100%; */
+    background-size: 100% 100%;
+  }
+
+  .description {
+    /* width: 50%; */
+    width: 80%;
+  }
+
+  .sec-container {
+    height: 50vh;
+  }
+
+  .sec-cards {
+    /* height: 70vh; */
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .client-testimonial {
+    height: 80vh;
+  }
+
+  .reviews {
+    height: 60vh;
+  }
+
+  .client {
+    height: 58vh;
+  }
+
+  .description {
+    margin: 10px 0 15px;
+  }
+
+  .heading-card {
+    /* font-size: 2.5rem; */
+    font-size: 1.3rem;
   }
 
   #learnMore {
     font-size: 1rem;
+  }
+
+  .sec-container,
+  .sec-cards {
+    height: 60vh;
+  }
+
+  .cardLeft,
+  .cardRight {
+    right: 100%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .desktop-img {
+    display: none;
+  }
+
+  .heading-semi {
+    margin-top: 10px;
+  }
+
+  .container-main {
+    background-image: url("images/mobile/image-header.jpg");
+    background-size: cover;
+  }
+
+  .mobile-img {
+    display: block;
+  }
+
+  .card {
+    flex-direction: column-reverse;
+    height: 100vh;
+  }
+
+  .card-img {
+    width: 100vw;
+    height: 50vh;
+  }
+  .card-img img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-content {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .content,
+  .heading-card,
+  #learnMore {
     width: 60%;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .sec-container,
+  .sec-cards {
+    height: 100vh;
+  }
+
+  .sec-cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardLeft,
+  .cardRight {
+    width: 100%;
+    height: 50%;
+  }
+
+  .description {
+    width: 60%;
+  }
+
+  .client-testimonial {
+    height: 145vh;
+  }
+
+  .reviews {
+    height: 130vh;
+    flex-direction: column;
+  }
+
+  .client {
+    width: 55vw;
+    height: 40vh;
+    margin: 20px 0;
+    border-right: none;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 10px rgba(240, 230, 240, 1);
+    /*box-shadow: 0px 0px 10px 0px rgba(189,191,218,0.88);
+    box-shadow: 0px 0px 10px 0px rgba(230,235,240,1.5); */
+  }
+
+  .footer {
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hamBurger {
+    display: block;
+  }
+
+  .heading-main {
+    font-size: 2.5rem;
+  }
+  .list {
+    position: absolute;
+    top: -100%;
+  }
+
+  .list li a {
+    color: black;
+  }
+
+  .mobile-menu {
+    flex-direction: column;
+  }
+
+  .isMobile {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .client {
+    height: 45vh;
+    width: 75vw;
+  }
+
+  .mobile-menu {
+    top: 10%;
+    width: 90vw;
+    margin: 0 20px;
+    background-color: white;
+    color: black;
+    height: 40vh;
+    justify-content: center;
+    border-radius: 0 50px 0 0;
+    transition: all 1.6s ease-in-out;
+  }
+
+  .btn {
+    background-color: hsl(51, 100%, 49%);
+  }
+
+  .list li {
+    margin: 20px 0;
+    padding: 0px;
+  }
+  .logo {
+    position: absolute;
+    top: 5%;
+  }
+  .isMobile {
+    height: 50vh;
+  }
+  .reviews {
+    height: 140vh;
+    flex-direction: column;
+  }
+
+  .client-testimonial {
+    height: 165vh;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card,
+  .sec-container,
+  .sec-cards {
+    height: 90vh;
+  }
+
+  .heading-semi {
+    font-size: 1.29rem;
+  }
+
+  .card-img {
+    height: 40vh;
+  }
+
+  .client {
+    height: 35vh;
+    width: 75vw;
+  }
+
+  .reviews {
+    justify-content: flex-start;
+  }
+
+  .client-testimonial {
+    height: 140vh;
   }
 
   .description {
     width: 80%;
   }
+}
 
-  /* style.css | http://127.0.0.1:5500/style.css */
-
-  .sec-container {
-    /* height: 75vh; */
-    height: 53vh;
+@media screen and (max-width: 380px) {
+  .content,
+  .heading-card,
+  #learnMore {
+    /* width: 50%; */
+    width: 60%;
   }
-
   .client-testimonial {
-    /* height: 67vh; */
-    height: 60vh;
-  }
-
-  .cardLeft {
-    width: 49.9vw;
+    /* height: 135vh; */
+    height: 155vh;
   }
 
   .client {
-    width: 30vw;
+    height: 40vh;
   }
 
-  .cardLeft,
-  .cardRight {
-    background-repeat: round;
+  .footer {
+    height: 55vh;
   }
 
-  /* style.css | http://127.0.0.1:5500/style.css */
-
-  .reviews {
-    /* width: 80vw; */
-    width: 100vw;
-    justify-content: center;
+  .f-list {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-@media screen and (max-width: 900px) {
-  .heading-card {
-    font-size: 1.3rem;
+@media screen and (min-width: 750px) and (max-height: 575px) {
+  .card {
+    height: 100vh;
   }
-
-  .cardLeft .description {
-    margin-bottom: 13px;
-  }
-
-  .description {
-    margin-top: 12px;
-  }
-
-  .cardLeft,
-  .cardRight {
-    height: 45vh;
-  }
-
-  .sec-container {
-    height: 45vh;
+  .sec-container,
+  .sec-cards {
+    height: 100vh;
   }
 
   .client-testimonial {
-    height: 53vh;
+    height: 135vh;
+  }
+
+  .reviews {
+    height: 90vh;
+  }
+
+  .client {
+    height: 85vh;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .heading-main {
+    font-size: 2.3rem;
+  }
+
+  .heading-card {
+    font-size: 1rem;
+  }
+
+  .card-content {
+    font-size: 0.8rem;
+  }
+
+  #learnMore {
+    font-size: 0.9rem;
+  }
+
+  .heading-semi {
+    font-size: 1.09rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .client-testimonial {
+    height: 180vh;
+  }
+
+  .reviews {
+    height: 150vh;
+  }
+
+  .client {
+    height: 50vh;
+  }
+
+  .content-client {
+    font-size: 0.8rem;
+  }
+
+  .profession,
+  .name {
+    font-size: 0.9rem;
   }
 }
